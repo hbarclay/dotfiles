@@ -2,7 +2,9 @@ call plug#begin('~/.vim/plugged')
 
 """ Common 
 Plug 'editorconfig/editorconfig-vim'
-Plug 'itchyny/lightline.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install all'}
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-eunuch'
@@ -22,7 +24,6 @@ Plug 'sirver/ultisnips'
 
 """ Latex
 if executable('latex')
-	#Plug 'xuhdev/vim-latex-live-preview'
 	Plug 'lervag/vimtex' , {'for': 'tex'}
 		let g:tex_flavor='latex'
 		let g:vimtex_view_method='zathura'
@@ -34,12 +35,25 @@ if executable('latex')
 		hi Conceal ctermbg=none
 endif
 
-#Plug 'ludovicchabant/vim-gutentags'
 Plug 'Valloric/YouCompleteMe'
     let g:ycm_auto_trigger=1
 	let g:ycm_enable_inlay_hints=0
 	let g:ycm_always_populate_location_list=1
 
-Plug 'dylanaraps/wal.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = [
+  \ 'coc-tsserver',
+  \ 'coc-eslint'
+  \ ]
+
+
+
+
 
 call plug#end()

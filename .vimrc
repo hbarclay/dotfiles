@@ -79,11 +79,7 @@ filetype plugin on
 
 so ~/.vim/plugins.vim
 
-" This gets annoying
-colorscheme wal
-"let g:lightline = {
-"	\ 'colorscheme': 'solarized',
-"	\ }
+colorscheme nord
 
 noremap <F7> :NERDTreeToggle<CR>
 noremap <F9> :TagbarToggle<CR>
@@ -91,8 +87,6 @@ noremap <F8> :TagbarOpenAutoClose<CR>
 
 
 set diffopt+=vertical
-
-set statusline+=%{gutentags#statusline()}
 
 """ Plugin Mappings 
 
@@ -102,6 +96,25 @@ nnoremap <localleader>] :YcmCompleter GoToDeclaration<CR>
 nnoremap <localleader>[ :YcmCompleter GoToDefinition<CR>
 nnoremap <localleader>f :YcmCompleter GoToDefinitionElseDeclaration<CR>
 map <F9> :YcmCompleter FixIt<CR>
+
+" Coc
+function! CocMappings()
+	nmap <buffer> <silent> <localleader>] <Plug>(coc-definition)
+	nmap <buffer> <silent> <localleader>[ <Plug>(coc-type-definition)
+	nmap <buffer> <silent> <localleader>r <Plug>(coc-references)
+	nmap <buffer> <F9> <Plug>(coc-codeaction)
+	
+	nmap <buffer> <leader>rn <Plug>(coc-rename)
+
+	nnoremap <buffer> <silent> K :call CocAction('doHover')<CR>
+
+	" Make <CR> to accept selected completion item or notify coc.nvim to format
+	" <C-g>u breaks current undo, please make your own choice
+	inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                             \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+endfunction
+
+autocmd FileType javascript,typescript call CocMappings()
 
 " FZF
 "map <C-h> :History<CR>

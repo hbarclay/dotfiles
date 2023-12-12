@@ -127,24 +127,25 @@ export PATH
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/harrison/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/harrison/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/harrison/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/harrison/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
+#__conda_setup="$('/home/harrison/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+#if [ $? -eq 0 ]; then
+#    eval "$__conda_setup"
+#else
+#    if [ -f "/home/harrison/anaconda3/etc/profile.d/conda.sh" ]; then
+#        . "/home/harrison/anaconda3/etc/profile.d/conda.sh"
+#    else
+#        export PATH="/home/harrison/anaconda3/bin:$PATH"
+#    fi
+#fi
+#unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="$PATH:/usr/local/cuda-9.1/bin"
 export LD_LIBRARY_PATH="/usr/local/cuda-9.1/lib64:$LD_LIBRARY_PATH"
 
-(cat ~/.cache/wal/sequences &)
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 alias config="/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
+
+export PATH=$PATH:/home/harrison/.spicetify
+export PATH=$PATH:/usr/local/NVIDIA-Nsight-Compute/
